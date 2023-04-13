@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="d-flex align-items-center mt-5 flex-column gap-5">
+        <h1>Youtube Video Downloader</h1>
+        <div class="col-4">
+        <form action="" method="post" class="d-flex">
+            {% csrf_token %}
+          <input class="form-control me-1" id="link" name="link" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-primary" value="submit" type="submit">Search</button>
+        </form>
+      </div>
+      </div><!--
+<form action="" method="post">
+{% csrf_token %}
+
+<label for="link">Enter URL:</label>
+<input type="text" id="link" name="link"><br><br>
+<input type="submit" value="Submit">
+</form>-->
+{% if streams %}
+<a href="#"">{{streams}}</a>
+<p>{{title}}</p>
+<img src="{{thumbnail}}"/>
+<p>{{you | filesizeformat}}</p>
+{% endif %}
+<!--
+<table>
+    <tr>
+        <th scope="col">Resolution</th>
+        <th scope="col">File Size</th>
+        <th scope="col">Extension</th>
+        <th scope="col">Download</th>
+    </tr>
+    <tr>
+        {% for stream in streams %}
+            <tr>
+                <td>{{ stream.resolution }}</td>
+                <td>{{ stream.file_size }}</td>
+                <td>{{ stream.extension }}</td>
+                <td><a href="{{ stream.video_url }}" style="text-decoration: none;"
+                       download="{{ title }}.{{ extension }}" target="_blank">Download <i
+                        class=" fa fa-download"></i></a></td>
+            </tr>
+        {% endfor %}
+    </tr>
+</table>-->
+{% endblock %}
